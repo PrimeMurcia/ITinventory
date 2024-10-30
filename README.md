@@ -161,8 +161,9 @@ sudo mv install.php install.php.bak
 ### 14. Add Windows PCs to OCS Inventory
 Follow the appropriate steps for adding Windows PCs to the OCS Inventory system.
 
-Additional Notes
+### Additional Notes
 Make sure to adjust the timezone and memory settings based on your server's requirements.
 Keep security best practices in mind, such as using strong passwords and firewall configurations.
-License
+
+### License
 This project is licensed under the MIT License - see the LICENSE file for details.
