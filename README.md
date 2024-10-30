@@ -108,62 +108,57 @@ post_max_size = 100M
 upload_max_filesize = 100M
 max_execution_time = 360
 date.timezone = Europe/Stockholm
-Restart Apache:
 ```
-bash
-Copy code
+Restart Apache:
+```bash
 sudo systemctl restart apache2
+```
 11. Download and Install OCS Inventory
 Download OCS Inventory and extract it:
 
-bash
-Copy code
+```bash
 sudo wget https://github.com/OCSInventory-NG/OCSInventory-ocsreports/releases/download/2.10.0/OCSNG_UNIX_SERVER-2.10.0.tar.gz
 sudo tar -xvf OCSNG_UNIX_SERVER-2.10.0.tar.gz
 cd OCSNG_UNIX_SERVER-2.10.0
+```
 Edit the setup script to add database credentials:
-
-bash
-Copy code
+```bash
 sudo nano setup.sh
+```
 Set the following variables:
-
-bash
-Copy code
+```bash
 DB_SERVER_USER="ocsuser"
 DB_SERVER_PWD="ocsPWD"
+```
 Run the setup script:
-
-bash
-Copy code
+```bash
 sudo ./setup.sh
-12. Apply Apache2 Configurations for OCS Inventory Server
+```
+### 12. Apply Apache2 Configurations for OCS Inventory Server
 Link the configuration files:
-
-bash
-Copy code
+```bash
 sudo ln -s /etc/apache2/conf-available/ocsinventory-reports.conf /etc/apache2/conf-enabled/ocsinventory-reports.conf
 sudo ln -s /etc/apache2/conf-available/z-ocsinventory-server.conf /etc/apache2/conf-enabled/z-ocsinventory-server.conf
 sudo ln -s /etc/apache2/conf-available/zz-ocsinventory-restapi.conf /etc/apache2/conf-enabled/zz-ocsinventory-restapi.conf
+```
 Set permissions and restart Apache:
 
-bash
-Copy code
+```bash
 sudo chown -R www-data:www-data /var/lib/ocsinventory-reports/
 sudo systemctl restart apache2
-13. Access the OCS Inventory Web Interface
+```
+### 13. Access the OCS Inventory Web Interface
 Open your web browser and navigate to:
 
-arduino
-Copy code
+
 http://192.168.1.50/ocsreports/index.php
 For security, rename the install file:
 
-bash
-Copy code
+```bash
 cd /usr/share/ocsinventory-reports/ocsreports/
 sudo mv install.php install.php.bak
-14. Add Windows PCs to OCS Inventory
+```
+### 14. Add Windows PCs to OCS Inventory
 Follow the appropriate steps for adding Windows PCs to the OCS Inventory system.
 
 Additional Notes
